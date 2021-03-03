@@ -13,14 +13,14 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.example.quotes.view.MainActivity">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/quote_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quote"
+            android:hint="@string/quote"
+            android:text="@{viewmodel.quote.quoteText}"
             android:textSize="26sp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +33,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="author"
+            android:text="@{viewmodel.quote.author}"
+            android:hint="@string/author"
             android:textSize="14sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -47,6 +48,7 @@
             android:layout_marginBottom="16dp"
             android:padding="8dp"
             android:text="Generate&#10;quote"
+            android:onClick="@{() -> viewmodel.fetchQuote()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
