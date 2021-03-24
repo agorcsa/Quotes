@@ -1,11 +1,13 @@
 package com.example.quotes
 
-import com.example.quotes.model.Quote
+import retrofit2.Call
 import retrofit2.http.GET
-
 
 interface QuoteApi {
 
-    @GET("/api/random.json")
-    fun getQuote(): Quote
+    @GET("/random")
+    fun getQuote(): Call<Quote>
+
+    @GET("/quotes")
+    fun getQuoteList(): Call<List<Quote>>
 }
